@@ -121,14 +121,14 @@ dependencies {
     // Simperium
     compile 'com.simperium.android:simperium:0.6.8'
 
-    releaseCompile project(path:':libs:utils:WordPressUtils', configuration: 'release')
-    debugCompile project(path:':libs:utils:WordPressUtils', configuration: 'debug')
-    releaseCompile project(path:':libs:networking:WordPressNetworking', configuration: 'release')
-    debugCompile project(path:':libs:networking:WordPressNetworking', configuration: 'debug')
-    releaseCompile project(path:':libs:analytics:WordPressAnalytics', configuration: 'release')
-    debugCompile project(path:':libs:analytics:WordPressAnalytics', configuration: 'debug')
-    releaseCompile project(path:':libs:editor:WordPressEditor', configuration: 'release')
-    debugCompile project(path:':libs:editor:WordPressEditor', configuration: 'debug')
+    releaseCompile project(path:':test_app_wordpress:libs:utils:WordPressUtils', configuration: 'release')
+    debugCompile project(path:':test_app_wordpress:libs:utils:WordPressUtils', configuration: 'debug')
+    releaseCompile project(path:':test_app_wordpress:libs:networking:WordPressNetworking', configuration: 'release')
+    debugCompile project(path:':test_app_wordpress:libs:networking:WordPressNetworking', configuration: 'debug')
+    releaseCompile project(path:':test_app_wordpress:libs:analytics:WordPressAnalytics', configuration: 'release')
+    debugCompile project(path:':test_app_wordpress:libs:analytics:WordPressAnalytics', configuration: 'debug')
+    releaseCompile project(path:':test_app_wordpress:libs:editor:WordPressEditor', configuration: 'release')
+    debugCompile project(path:':test_app_wordpress:libs:editor:WordPressEditor', configuration: 'debug')
 }
 
 configurations.all {
@@ -139,8 +139,8 @@ configurations.all {
 }
 
 task generateCrashlyticsConfig(group: "generate", description: "Generate Crashlytics config") {
-    def outputFile = new File("${rootDir}/WordPress/crashlytics.properties")
-    def inputFile = file("${rootDir}/WordPress/gradle.properties")
+    def outputFile = new File("${rootDir}/test_app_wordpress/WordPress/crashlytics.properties")
+    def inputFile = file("${rootDir}/test_app_wordpress/WordPress/gradle.properties")
     if (!inputFile.exists()) {
         throw new StopActionException("Build configuration file:" + inputFile
                 + " doesn't exist, follow README instructions")
