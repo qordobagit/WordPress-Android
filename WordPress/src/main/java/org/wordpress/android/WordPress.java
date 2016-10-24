@@ -30,6 +30,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.qordoba.sdk.Qordoba;
 import com.wordpress.rest.RestClient;
 import com.wordpress.rest.RestRequest;
 
@@ -172,6 +173,13 @@ public class WordPress extends MultiDexApplication {
 
         mContext = this;
 
+        Qordoba.init(this, new Qordoba.InitConfiguration() {
+            {
+                productionOrSandboxKey = "???";
+                applicationId = "???";
+            }
+        });
+
         ProfilingUtils.start("App Startup");
         // Enable log recording
         AppLog.enableRecording(true);
@@ -215,6 +223,9 @@ public class WordPress extends MultiDexApplication {
 
         // If users uses a custom locale set it on start of application
         WPActivityUtils.applyLocale(getContext());
+
+
+
     }
 
     private void initAnalytics(final long elapsedTimeOnCreate) {

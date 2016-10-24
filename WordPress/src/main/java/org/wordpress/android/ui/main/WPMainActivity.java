@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.qordoba.sdk.Qordoba;
 import com.simperium.client.Bucket;
 import com.simperium.client.BucketObjectMissingException;
 
@@ -124,6 +125,7 @@ public class WPMainActivity extends AppCompatActivity implements Bucket.Listener
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
+                Qordoba.setNavigationRouteForActivity(WPMainActivity.this, "" + tab.getPosition());
             }
 
             @Override
